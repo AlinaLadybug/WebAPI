@@ -2,11 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TestTask.DataModels
 {
-    public class TextTaskContext : DbContext
+    public class TestTaskContext : DbContext
     {
-        //private const string V = "name=TestTaskContext";
-
-        public TextTaskContext(DbContextOptions<TextTaskContext> options) : base(options)
+        public TestTaskContext(DbContextOptions<TestTaskContext> options) : base(options)
         {
 
         }

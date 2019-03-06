@@ -8,13 +8,13 @@ namespace TestTask.DataModels
 {
     public class DateRepository : IDateRepository
     {
-        private TextTaskContext _dbContext;
+        private TestTaskContext _dbContext;
 
         public DateRepository()
         {
         }
 
-        public DateRepository(TextTaskContext dbContext)
+        public DateRepository(TestTaskContext dbContext)
         {
             _dbContext = dbContext;
         }
