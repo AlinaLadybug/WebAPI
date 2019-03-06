@@ -9,6 +9,6 @@ namespace TestTask.DataModels
 
         }
 
-        public DbSet<DateModel> DateModels { get; set; }
+        public virtual DbSet<DateModel> DateModels { get; set; }
     }
 }

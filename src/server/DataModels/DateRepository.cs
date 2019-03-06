@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.EntityFrameworkCore;
 using server.ViewModels;
 using System;
@@ -10,12 +11,18 @@ namespace TestTask.DataModels
     public class DateRepository : IDateRepository
     {
         private TestTaskContext _dbContext;
-
+        private HostingApplication.Context _testTaskCtx;
 
         public DateRepository(TestTaskContext dbContext)
         {
             _dbContext = dbContext;
         }
+
+        public DateRepository(HostingApplication.Context testTaskCtx)
+        {
+            _testTaskCtx = testTaskCtx;
+        }
+
         public async Task AddAsync(ViewDateModel dateVm)
         {
             if (dateVm == null)
