@@ -7,8 +7,25 @@
   "targets": {
     ".NETCoreApp,Version=v2.2": {
       "client/1.0.0": {
+        "dependencies": {
+          "server": "1.0.0",
+          "Newtonsoft.Json": "11.0.0.0"
+        },
         "runtime": {
           "client.dll": {}
+        }
+      },
+      "server/1.0.0": {
+        "runtime": {
+          "server.dll": {}
+        }
+      },
+      "Newtonsoft.Json/11.0.0.0": {
+        "runtime": {
+          "Newtonsoft.Json.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.2.21924"
+          }
         }
       }
     }
@@ -16,6 +33,16 @@
   "libraries": {
     "client/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "server/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Newtonsoft.Json/11.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

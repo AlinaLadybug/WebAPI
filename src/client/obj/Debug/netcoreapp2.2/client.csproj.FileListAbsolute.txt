@@ -9,3 +9,8 @@ C:\Users\Alina\TestTask\src\client\obj\Debug\netcoreapp2.2\client.AssemblyInfoIn
 C:\Users\Alina\TestTask\src\client\obj\Debug\netcoreapp2.2\client.AssemblyInfo.cs
 C:\Users\Alina\TestTask\src\client\obj\Debug\netcoreapp2.2\client.dll
 C:\Users\Alina\TestTask\src\client\obj\Debug\netcoreapp2.2\client.pdb
+C:\Users\Alina\TestTask\src\client\bin\Debug\netcoreapp2.2\Newtonsoft.Json.dll
+C:\Users\Alina\TestTask\src\client\bin\Debug\netcoreapp2.2\server.dll
+C:\Users\Alina\TestTask\src\client\bin\Debug\netcoreapp2.2\server.pdb
+C:\Users\Alina\TestTask\src\client\bin\Debug\netcoreapp2.2\Newtonsoft.Json.xml
+C:\Users\Alina\TestTask\src\client\obj\Debug\netcoreapp2.2\client.csproj.CopyComplete

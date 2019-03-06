@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using server.ViewModels;
 using TestTask.DataModels;
 
 namespace server.Controllers
@@ -12,25 +14,41 @@ namespace server.Controllers
     [ApiController]
     public class DatesController : ControllerBase
     {
-        private readonly IDateRepository _dateRep = new DateRepository();
-
-        // GET api/dates
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<DateModel>>> GetDatesAsync([FromBody] DateTime dateBefore, DateTime dateAfter)
+        private readonly IDateRepository _dateRep;
+        public DatesController(TestTaskContext dbContext)
         {
-            var dates = await _dateRep.GetDatesAsync(dateBefore, dateAfter);
-            return dates;
+            _dateRep = new DateRepository(dbContext);
+        }
+
+        [HttpPost]
+        [Route("range")]
+        public async Task<ActionResult<ViewDateModel[]>> GetDatesAsync([FromBody] ViewDateModel dateModel)
+        {
+            try
+            {
+                var dates = await _dateRep.GetDatesAsync(dateModel);
+                return dates;
+            }
+            catch
+            {
+               return BadRequest();
+            }
 
         }
 
         // POST api/dates
         [HttpPost]
-        public void Post(DateModel dateModel)
+        public async Task Post([FromBody] ViewDateModel dateModel)
         {
-
-            _dateRep.AddAsync(dateModel);
-            //var response = Request.<DateModel>(HttpStatusCode.Created, dateModel);
-
+            try
+            {
+                await _dateRep.AddAsync(dateModel);
+                //var response = Request.<DateModel>(HttpStatusCode.Created, dateModel);
+            }
+            catch
+            {
+                BadRequest();
+            }
         }
 
 

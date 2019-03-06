@@ -207,6 +207,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "server/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/server.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/server.dll": {}
+        }
       }
     }
   },
@@ -678,11 +688,17 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "server/1.0.0": {
+      "type": "project",
+      "path": "../server/server.csproj",
+      "msbuildProject": "../server/server.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
-      "Microsoft.NETCore.App >= 2.2.0"
+      "Microsoft.NETCore.App >= 2.2.0",
+      "server >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -714,7 +730,11 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Alina\\TestTask\\src\\server\\server.csproj": {
+              "projectPath": "C:\\Users\\Alina\\TestTask\\src\\server\\server.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

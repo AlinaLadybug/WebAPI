@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using server.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,28 +11,33 @@ namespace TestTask.DataModels
     {
         private TestTaskContext _dbContext;
 
-        public DateRepository()
-        {
-        }
 
         public DateRepository(TestTaskContext dbContext)
         {
             _dbContext = dbContext;
         }
-        public async void AddAsync(DateModel dateModel)
+        public async Task AddAsync(ViewDateModel dateVm)
         {
-            if (dateModel == null)
+            if (dateVm == null)
             {
-                throw new ArgumentNullException("dateModel");
+                throw new ArgumentNullException("dateVm");
             }
+            DateModel dateModel = new DateModel { DateBefore = dateVm.DateBefore, DateAfter = dateVm.DateAfter };
             _dbContext.DateModels.Add(dateModel);
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<DateModel[]> GetDatesAsync(DateTime dateBefore, DateTime dateAfter)
+        public async Task<ViewDateModel[]> GetDatesAsync(ViewDateModel dateModel)
         {
+            var dateBefore = dateModel.DateBefore;
+            var dateAfter = dateModel.DateAfter;
             var dates = await _dbContext.Set<DateModel>()
                                          .Where(x => x.DateBefore >= dateBefore && x.DateAfter <= dateAfter)
+                                         .Select(x => new ViewDateModel
+                                         {
+                                             DateBefore = x.DateBefore,
+                                             DateAfter = x.DateAfter
+                                         })
                                          .ToArrayAsync();
             return dates;
         }
