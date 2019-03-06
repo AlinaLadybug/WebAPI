@@ -54,7 +54,11 @@ namespace client
             }
             for (int i = 0; i < dates.Length; i++)
             {
-                Console.WriteLine($"{dates[i].DateBefore} \t\t {dates[i].DateAfter}");
+                var before = (DateTime)dates[i].DateBefore;
+                var after = (DateTime)dates[i].DateAfter;
+                var test = before.Date;
+
+                Console.WriteLine($"{test} \t\t {after.Date}");
             }
         }
 

@@ -42,7 +42,7 @@ namespace client
             string dateItem = $"Please enter {dateType}, format - {format}";
 
             Console.WriteLine(dateItem);
-            string retryItem = $"You entered incorrect date. Please, try again. {dateItem}";
+            string retryItem = $"You entered incorrect date. Please, try again.";
             while (true)
             {
                 DateTime date;
@@ -50,7 +50,10 @@ namespace client
                 {
                     Console.WriteLine(retryItem);
                 }
-                return date;
+                else
+                {
+                    return date;
+                }
             }
         }
 
